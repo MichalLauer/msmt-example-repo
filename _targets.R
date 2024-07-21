@@ -36,7 +36,7 @@ tgt_raw <-
     tar_combine_raw(
       id,
       targets,
-      command = expression( map(list(!!!.x), as.data.table)|> rbindlist(fill = TRUE) )
+      command = expression( bind_rows_fast( list(!!!.x)) )
     )
   })
 

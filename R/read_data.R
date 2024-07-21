@@ -7,9 +7,7 @@ read_data <- function(file) {
                  sheet = sheet,
                  col_types = "text")
     }) |>
-    map(as.data.table) |>
-    rbindlist(fill = T) |>
-    as_tibble()
+    bind_rows_fast()
 
 
   return(data)
